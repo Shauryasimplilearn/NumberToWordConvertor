@@ -1,9 +1,8 @@
 package convertor;
 import junit.framework.Assert;
-import junit.framework.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import java.util.Scanner;
+import java.util.logging.Logger;
+
 
 
 public class NumberToWordTest extends TestCase
@@ -13,23 +12,23 @@ public class NumberToWordTest extends TestCase
     public NumberToWordTest( String testName )
     {
     	super( testName );
-        System.out.println("Inside test suit");
+        Logger.getLogger("Inside test suit");
     }
     
     public void testForZero() throws Exception
     {
     	String args[]=new String[1];
     	args[0]="0";
-    	System.out.println("Inside testForZero()");
+    	Logger.getLogger("Inside testForZero()");
     	assertFalse(numberconvert.isValid(args[0]));
-    	System.out.println("Exiting");
+    	Logger.getLogger("Exiting");
     }
 
      public void testForLengthGreaterthan3() throws Exception
     {
     	String args[]=new String[1];
     	args[0] = "7658";
-    	System.out.println("Inside testForLengthGreaterthan3()");
+    	Logger.getLogger("Inside testForLengthGreaterthan3()");
     	assertFalse(numberconvert.isValid(args[0]));
     }
     
@@ -37,7 +36,7 @@ public class NumberToWordTest extends TestCase
     {
     	String args[]=new String[1];
     	args[0] = "abc";
-    	System.out.println("Inside testAlphanumeric()");
+    	Logger.getLogger("Inside testAlphanumeric()");
     	assertFalse(numberconvert.isValid(args[0]));
     }
     
@@ -45,7 +44,7 @@ public class NumberToWordTest extends TestCase
     {
     	String args[]=new String[1];
     	args[0]="768";
-    	System.out.println("Inside testAlphanumeric()");
+    	Logger.getLogger("Inside testAlphanumeric()");
     	assertTrue(numberconvert.isValid(args[0]));
     }    
     
@@ -53,7 +52,7 @@ public class NumberToWordTest extends TestCase
     {
     	String args[]=new String[1];
     	args[0]="zero";
-    	System.out.println("Inside testAlphanumeric()");
+    	Logger.getLogger("Inside testAlphanumeric()");
     	Assert.assertEquals(args[0], numberconvert.convert(0));
     }    
     
@@ -61,7 +60,7 @@ public class NumberToWordTest extends TestCase
     {
     	String args[]=new String[1];
     	args[0]="negative ninety five";
-    	System.out.println("Inside testAlphanumeric()");
+    	Logger.getLogger("Inside testAlphanumeric()");
     	Assert.assertEquals(args[0], numberconvert.convert(-95));
     }    
     
@@ -69,7 +68,7 @@ public class NumberToWordTest extends TestCase
     {
     	String args[]=new String[1];
     	args[0]="nine hundred  ninety five";
-    	System.out.println("Inside testAlphanumeric()");
+    	Logger.getLogger("Inside testAlphanumeric()");
     	Assert.assertEquals(args[0], numberconvert.convert(995));
     }
     
@@ -77,7 +76,7 @@ public class NumberToWordTest extends TestCase
     {
     	String args[]=new String[1];
     	args[0]="eighty five";
-    	System.out.println("Inside testAlphanumeric()");
+    	Logger.getLogger("Inside testAlphanumeric()");
     	Assert.assertEquals(args[0], numberconvert.convert(85));
     }
     
@@ -85,8 +84,32 @@ public class NumberToWordTest extends TestCase
     {
     	String args[]=new String[1];
     	args[0]="eight";
-    	System.out.println("Inside testAlphanumeric()");
+    	Logger.getLogger("Inside testAlphanumeric()");
     	Assert.assertEquals(args[0], numberconvert.convert(8));
     }
-           
+    
+    public void testForNumberToWordconvertVariety1() throws Exception
+    {
+    	String args[]=new String[1];
+    	args[0]="ninety eight";
+    	Logger.getLogger("Inside testAlphanumeric()");
+    	Assert.assertEquals(args[0], numberconvert.convert(98));
+    }
+    
+    public void testForNumberToWordconvertVariety2() throws Exception
+    {
+    	String args[]=new String[1];
+    	args[0]="nine hundred  ninety eight";
+    	Logger.getLogger("Inside testAlphanumeric()");
+    	Assert.assertEquals(args[0], numberconvert.convert(998));
+    }
+    
+    public void testForNumberToWordconvertVariety3() throws Exception
+    {
+    	String args[]=new String[1];
+    	args[0]="nine";
+    	Logger.getLogger("Inside testAlphanumeric()");
+    	Assert.assertEquals(args[0], numberconvert.convert(9));
+    }
+          
 }

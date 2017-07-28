@@ -1,9 +1,12 @@
 package convertor;
+import java.util.logging.Logger;
 
 
-
+/**
+ * @author ASHISH MURGAI
+ *
+ */
 public class NumberToWordsConvertor  
-
 {
     
     private static final String[] tensNames = {
@@ -41,7 +44,7 @@ public class NumberToWordsConvertor
         " eighteen",
         " nineteen"
     };
-    
+
     private String convertLessThanOneThousand(int number) {
         String current;
         System.out.println("Inside convertLessThanOneThousand number"+" " +number);
@@ -71,6 +74,10 @@ public class NumberToWordsConvertor
         return numNames[number] + " hundred" + " "+current;
     }
     
+    /**
+     * @param number
+     * @return String
+     */
     public String convert(int number) {
     	System.out.println("Inside Convert() Function"+" "+number);
 
