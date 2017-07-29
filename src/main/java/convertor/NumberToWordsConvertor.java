@@ -6,6 +6,18 @@ import java.util.logging.Logger;
  * @author ASHISH MURGAI
  *
  */
+/**
+ * @author SHAURYA MURGAI
+ *
+ */
+/**
+ * @author SHAURYA MURGAI
+ *
+ */
+/**
+ * @author SHAURYA MURGAI
+ *
+ */
 public class NumberToWordsConvertor  
 {
     
@@ -45,7 +57,13 @@ public class NumberToWordsConvertor
         " nineteen"
     };
 
-    private String convertLessThanOneThousand(int number) {
+    /**
+     * @param number
+     * @return String
+     * Method check for Whole number and normal number logic, basis which it puts the 
+     * Words conversion logic accordingly from NumNames and Tens Names array accordingly.
+     */
+    private String convertNumber(int number) {
         String current;
         Logger.getLogger("Inside convertLessThanOneThousand number"+" " +number);
         Logger.getLogger("Before Calculation for "+" "+ (number % 100));
@@ -77,6 +95,10 @@ public class NumberToWordsConvertor
     /**
      * @param number
      * @return String
+     * Contains the Main Logic for Conversion of number to Words. Checks for 
+     * Negative number as well and converts the same.It calls convertNumber method which
+     * converts checks for number as whole number or not and puts logic accordingy.
+     * Finally it checks whether the number is converted and then concatinates everything.
      */
     public String convert(int number) {
     	Logger.getLogger("Inside Convert() Function"+" "+number);
@@ -98,7 +120,7 @@ public class NumberToWordsConvertor
             Logger.getLogger("Int number is"+" "+n);
             if (n != 0){
             	Logger.getLogger("Inside n!0 number"+" "+n);
-                String s = convertLessThanOneThousand(n);
+                String s = convertNumber(n);
                 Logger.getLogger("String S variable value is"+" "+s);
                 Logger.getLogger("Value of Current variable value is"+" "+current);
                 Logger.getLogger("Value of place variable value is"+" "+place);
@@ -110,7 +132,10 @@ public class NumberToWordsConvertor
         Logger.getLogger("Value of prefix current value is"+"*******"+" "+current);
         return (prefix + current).trim();
     }
-    
+     	
+    /**
+     * This is a main thread method and takes String Array as argument.
+     */
     public static void main(String[] args) {
     	NumberToWordsConvertor obj = new NumberToWordsConvertor();
     	
@@ -121,6 +146,13 @@ public class NumberToWordsConvertor
     		return;
     }
     
+    /**
+     * @param val
+     * @return boolean
+     * This method is a main validation method which is called once user inputs its choice 
+     * It checks for Space,User entry as Alphanumeric,and max three digit check, since it is for 
+     * max 999 number which it converts into words.
+     */
     public boolean isValid(String val)
     {
       	
@@ -137,6 +169,12 @@ public class NumberToWordsConvertor
 
     }
     
+    /**
+     * @param str
+     * @return boolean
+     * Checks for Alphanumeric number and returns from the method.The NUmber should be
+     * Digital and should not contain any alphanumeric character.
+     */
     public boolean isAlphanumeric(String str) {
     	int counter=0;
         for (int i=0; i<str.length(); i++) {
