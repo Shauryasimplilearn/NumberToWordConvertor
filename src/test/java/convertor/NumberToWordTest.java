@@ -112,4 +112,21 @@ public class NumberToWordTest extends TestCase
     	Assert.assertEquals(args[0], numberconvert.convert(9));
     }
           
+    public void testForNumberToWordconvertVariety4() throws Exception
+    {
+    	String args[]=new String[1];
+    	args[0]="negative nine hundred  ninety nine";
+    	Logger.getLogger("Inside testAlphanumeric()");
+    	Assert.assertEquals(args[0], numberconvert.convert(-999));
+    }
+    
+    public void testForNumberToWordconvertVariety5() throws Exception
+    {
+    	String args[]=new String[1];
+    	args[0]="-9999";
+    	Logger.getLogger("Inside testForZero()");
+    	assertFalse(numberconvert.isValid(args[0]));
+    	Logger.getLogger("Exiting");
+    }
+
 }

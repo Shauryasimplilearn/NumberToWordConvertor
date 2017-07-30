@@ -7,15 +7,15 @@ import java.util.logging.Logger;
  *
  */
 /**
- * @author SHAURYA MURGAI
+ * @author ASHISH MURGAI
  *
  */
 /**
- * @author SHAURYA MURGAI
+ * @author ASHISH MURGAI
  *
  */
 /**
- * @author SHAURYA MURGAI
+ * @author ASHISH MURGAI
  *
  */
 public class NumberToWordsConvertor  
@@ -139,10 +139,11 @@ public class NumberToWordsConvertor
     public static void main(String[] args) {
     	NumberToWordsConvertor obj = new NumberToWordsConvertor();
     	
-    		Logger.getLogger("ARGS[0] is"+" "+args[0]);
+    		System.out.println("Input Parameter is"+" "+args[0]);
     	if(obj.isValid(args[0]))
-    		Logger.getLogger("####   " + obj.convert(Integer.parseInt(args[0])));
+    		System.out.println("####   " + obj.convert(Integer.parseInt(args[0])));
     	else 
+    		System.out.println("Not a Valid Number Entered");
     		return;
     }
     
@@ -155,7 +156,10 @@ public class NumberToWordsConvertor
      */
     public boolean isValid(String val)
     {
-      	
+    	if((val.charAt(0))=='-')
+    	{
+    		val=val.replace("-","");
+    	}
     	if(!(val.trim()).equals("") && !isAlphanumeric(val.trim()) && Integer.parseInt(val)!=0 && val.trim().length()<=3)
         {
     		Logger.getLogger("Inside True Condition");
@@ -166,7 +170,8 @@ public class NumberToWordsConvertor
         	Logger.getLogger("Inside False Condition");
         	return false;
         }
-
+    	
+    	
     }
     
     /**
@@ -182,7 +187,7 @@ public class NumberToWordsConvertor
             Logger.getLogger("Character at"+c);
             Logger.getLogger("Is Digital"+Character.isDigit(c));
             Logger.getLogger("Is Character"+Character.isLetter(c));
-            if (c=='-'|| Character.isDigit(c) && !Character.isLetter(c))
+            if (Character.isDigit(c) && !Character.isLetter(c))
             {
             	counter++;
             	continue;
