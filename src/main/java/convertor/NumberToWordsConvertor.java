@@ -97,8 +97,8 @@ public class NumberToWordsConvertor
      * @return String
      * Contains the Main Logic for Conversion of number to Words. Checks for 
      * Negative number as well and converts the same.It calls convertNumber method which
-     * converts checks for number as whole number or not and puts logic accordingy.
-     * Finally it checks whether the number is converted and then concatinates everything.
+     * converts checks for number as whole number or not and puts logic accordingly.
+     * Finally it checks whether the number is converted and then concatinate everything.
      */
     public String convert(int number) {
     	Logger.getLogger("Inside Convert() Function"+" "+number);
