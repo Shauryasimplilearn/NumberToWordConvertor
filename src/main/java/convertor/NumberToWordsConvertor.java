@@ -1,4 +1,5 @@
 package convertor;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
@@ -20,6 +21,7 @@ import java.util.logging.Logger;
  */
 public class NumberToWordsConvertor  
 {
+    static Logger logger = Logger.getLogger(NumberToWordsConvertor.class.getName()); 
     
     private static final String[] tensNames = {
         "",
@@ -119,14 +121,15 @@ public class NumberToWordsConvertor
     public static void main(String[] args) {
     	NumberToWordsConvertor obj = new NumberToWordsConvertor();
     	
-    		System.out.println("Input Parameter is"+" "+args[0]);
+    	logger.log(Level.INFO, "Input Parameter is"+args[0]);
     	if(obj.isValid(args[0]))
     	{
-    		System.out.println("####   " + obj.convert(Integer.parseInt(args[0])));
+    		logger.log(Level.INFO,"####      "+obj.convert(Integer.parseInt(args[0])));
+    		logger.log(Level.INFO, "Successful Conversion");
     	}
     	else 
     	{
-    		System.out.println("Not a Valid Number Entered");
+    		logger.log(Level.INFO, "Not a Valid Number");
     		return;
     	}
     }
