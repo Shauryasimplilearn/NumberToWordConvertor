@@ -141,10 +141,14 @@ public class NumberToWordsConvertor
     	
     		System.out.println("Input Parameter is"+" "+args[0]);
     	if(obj.isValid(args[0]))
+    	{
     		System.out.println("####   " + obj.convert(Integer.parseInt(args[0])));
+    	}
     	else 
+    	{
     		System.out.println("Not a Valid Number Entered");
     		return;
+    	}
     }
     
     /**
