@@ -65,30 +65,18 @@ public class NumberToWordsConvertor
      */
     private String convertNumber(int numbertoconvert) {
         String current;
-        Logger.getLogger("Inside convertLessThanOneThousand number"+" " +numbertoconvert);
-        Logger.getLogger("Before Calculation for "+" "+ (numbertoconvert % 100));
-        
+          
         if (numbertoconvert % 100 < 20){
-        	Logger.getLogger("Inside < 20 if condition");
             current = numNames[numbertoconvert % 100];
-            Logger.getLogger("Value for Current variable"+" "+current);
             numbertoconvert /= 100;
-            Logger.getLogger("Value for number/100"+" "+(numbertoconvert));
         }
         else {
-        	Logger.getLogger("Inside else condition");
             current = numNames[numbertoconvert % 10];
-            Logger.getLogger("Value for Current variable"+" "+current);
             numbertoconvert /= 10;
-            Logger.getLogger("Value for number/10"+" "+(numbertoconvert));
             current = tensNames[numbertoconvert % 10] + current;
-            Logger.getLogger("After tensNames"+" "+(numbertoconvert % 10));
             numbertoconvert /= 10;
-            Logger.getLogger("After number /= 10"+" "+(numbertoconvert));
         }
-        Logger.getLogger("Final number variable value before return"+" "+numbertoconvert);
-        Logger.getLogger("Final current variable value before return"+" "+current);
-        if (numbertoconvert == 0) return current;
+         if (numbertoconvert == 0) return current;
         return numNames[numbertoconvert] + " hundred" + " "+current;
     }
     
@@ -101,7 +89,6 @@ public class NumberToWordsConvertor
      * Finally it checks whether the number is converted and then concatinate everything.
      */
     public String convert(int number) {
-    	Logger.getLogger("Inside Convert() Function"+" "+number);
 
         if (number == 0) { return "zero"; }
         
@@ -117,19 +104,12 @@ public class NumberToWordsConvertor
         
         do {
             int n = number % 1000;
-            Logger.getLogger("Int number is"+" "+n);
             if (n != 0){
-            	Logger.getLogger("Inside n!0 number"+" "+n);
                 String s = convertNumber(n);
-                Logger.getLogger("String S variable value is"+" "+s);
-                Logger.getLogger("Value of Current variable value is"+" "+current);
-                Logger.getLogger("Value of place variable value is"+" "+place);
-                current = s + current;
+                 current = s + current;
             }
           number /= 1000;
         } while (number > 0);
-        Logger.getLogger("Value of prefix variable value is"+"*****"+" "+prefix);
-        Logger.getLogger("Value of prefix current value is"+"*******"+" "+current);
         return (prefix + current).trim();
     }
      	
@@ -166,12 +146,10 @@ public class NumberToWordsConvertor
     	}
     	if(!(val.trim()).equals("") && !isAlphanumeric(val.trim()) && Integer.parseInt(val)!=0 && val.trim().length()<=3)
         {
-    		Logger.getLogger("Inside True Condition");
        		return true;
         }
         else
         {   
-        	Logger.getLogger("Inside False Condition");
         	return false;
         }
     	
@@ -188,9 +166,6 @@ public class NumberToWordsConvertor
     	int counter=0;
         for (int i=0; i<str.length(); i++) {
             char c = str.charAt(i);
-            Logger.getLogger("Character at"+c);
-            Logger.getLogger("Is Digital"+Character.isDigit(c));
-            Logger.getLogger("Is Character"+Character.isLetter(c));
             if (Character.isDigit(c) && !Character.isLetter(c))
             {
             	counter++;
@@ -198,8 +173,6 @@ public class NumberToWordsConvertor
             }
                 
         }
-        Logger.getLogger("Value for Counter is"+counter);
-        Logger.getLogger("Value for str is"+str.length());
         if(counter==str.length())
         	return false;
         else 
