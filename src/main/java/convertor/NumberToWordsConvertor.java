@@ -63,33 +63,33 @@ public class NumberToWordsConvertor
      * Method check for Whole number and normal number logic, basis which it puts the 
      * Words conversion logic accordingly from NumNames and Tens Names array accordingly.
      */
-    private String convertNumber(int number) {
+    private String convertNumber(int numbertoconvert) {
         String current;
-        Logger.getLogger("Inside convertLessThanOneThousand number"+" " +number);
-        Logger.getLogger("Before Calculation for "+" "+ (number % 100));
+        Logger.getLogger("Inside convertLessThanOneThousand number"+" " +numbertoconvert);
+        Logger.getLogger("Before Calculation for "+" "+ (numbertoconvert % 100));
         
-        if (number % 100 < 20){
+        if (numbertoconvert % 100 < 20){
         	Logger.getLogger("Inside < 20 if condition");
-            current = numNames[number % 100];
+            current = numNames[numbertoconvert % 100];
             Logger.getLogger("Value for Current variable"+" "+current);
-            number /= 100;
-            Logger.getLogger("Value for number/100"+" "+(number));
+            numbertoconvert /= 100;
+            Logger.getLogger("Value for number/100"+" "+(numbertoconvert));
         }
         else {
         	Logger.getLogger("Inside else condition");
-            current = numNames[number % 10];
+            current = numNames[numbertoconvert % 10];
             Logger.getLogger("Value for Current variable"+" "+current);
-            number /= 10;
-            Logger.getLogger("Value for number/10"+" "+(number));
-            current = tensNames[number % 10] + current;
-            Logger.getLogger("After tensNames"+" "+(number % 10));
-            number /= 10;
-            Logger.getLogger("After number /= 10"+" "+(number));
+            numbertoconvert /= 10;
+            Logger.getLogger("Value for number/10"+" "+(numbertoconvert));
+            current = tensNames[numbertoconvert % 10] + current;
+            Logger.getLogger("After tensNames"+" "+(numbertoconvert % 10));
+            numbertoconvert /= 10;
+            Logger.getLogger("After number /= 10"+" "+(numbertoconvert));
         }
-        Logger.getLogger("Final number variable value before return"+" "+number);
+        Logger.getLogger("Final number variable value before return"+" "+numbertoconvert);
         Logger.getLogger("Final current variable value before return"+" "+current);
-        if (number == 0) return current;
-        return numNames[number] + " hundred" + " "+current;
+        if (numbertoconvert == 0) return current;
+        return numNames[numbertoconvert] + " hundred" + " "+current;
     }
     
     /**
