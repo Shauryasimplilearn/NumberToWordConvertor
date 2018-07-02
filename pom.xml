@@ -66,7 +66,7 @@
                             <execution>
                                 <phase>deploy</phase>
                               <goals>
-                                    <goal>deploy</goal>
+                                    <goal>tomcat8:deploy</goal>
                                 </goals>
                             </execution>
                         </executions>
