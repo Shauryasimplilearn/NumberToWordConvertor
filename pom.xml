@@ -56,6 +56,9 @@
                       <executions>
                             <execution>
                                 <phase>deploy</phase>
+                              <goals>
+                                    <goal>deploy</goal>
+                                </goals>
                             </execution>
                         </executions>
                      </plugin>
